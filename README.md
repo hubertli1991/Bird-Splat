@@ -2,8 +2,8 @@
 
 ## MVP
 create a bird that has a default motion of falling.
-this bird has a click listen attached to it which makes the bird jump whenever the mouse is clicked.
-pipes hang from the ceiling and floor. If the bird makes contact with either two objects, it gets splat.
+this bird has a click listener attached to it which makes the bird jump whenever the mouse is clicked.
+Pipes hang from the ceiling and floor. If the bird makes contact with either two objects, it gets splat.
 
 ## Wireframe
 ![ wireframe ](https://github.com/hubertli1991/Bird-Splat/issues)
@@ -16,6 +16,6 @@ pipes hang from the ceiling and floor. If the bird makes contact with either two
 
 ## Check List
 - [ ] Bird and all its attributes
-- [ ] bird on listener 
+- [ ] bird onClick listener 
 - [ ] pipes that move
-- [ ] pipes
+- [ ] more pipes
