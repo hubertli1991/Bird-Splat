@@ -70,3 +70,4 @@ Game.prototype.addAsteroid = function() {
   }
 };
 ````
+This function first creates a new asteroid. For now, it is not in play. It's merely a candidate. If the candidate asteroid is far enough from the last asteroid in play, we push the new asteroid into play. If it is too close, then we ignore it and recursively call `addAsteroid` until there is an asteroid candidate that passes the collision test. That asteroid will be pushed into `this.asteroids` or "put in play." The `extraSpace` creates a safe zone for the bird to fly in with asteroids flying around above and below the bird. There are edge cases where a candidate is far enough from the last asteroid but still puts the bird in ann impossible situation. To avoid this case, I added another test which demands that the candidate is "close" to the second to the last asteroid in play. this tightens up the top and bottom asteroid streams. 
