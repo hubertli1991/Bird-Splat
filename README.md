@@ -1,25 +1,26 @@
 # Bird-Splat
 
-## Game Animation
-
-## Pausing Game
+## Running and Pausing Game
 
 ```` javascript
 GameView.prototype.animate = function(time){
   // the time variable is the time since DOMContentLoaded
   // gets automatically passed into the requestAnimationFrame callback
   this.timeAdjustment = this.timeAdjustment || time;
-  // we need to subtract the time between DOMContentLoaded and the 'ENTER' event that actually starts the game, i.e. since Game.start gets invoked
-  // If we don't subtract this time, the game will be running behind the scenes while the browser is only displaying the splash page
+  // we need to subtract the time between DOMContentLoaded and when the game actually starts running
+  // we only want the time since Game.start gets invoked
+  // If we don't, the game will be running while the browser is displaying the splash page
   // We store this time in timeAdjustment
   this.runTime = time - this.timeAdjustment;
-  // runTime is essentially the amount of time since GameView.start has been invoked
+  // runTime is the length of time passed since GameView.start was invoked
   var timeDelta;
-  // timeDelta is the fuel that runs the game. It gets fed into this.game.step(timeDelta) which is what actually moves the game
+  // timeDelta is the fuel that runs the game
+  // It gets fed into this.game.step(timeDelta) which is what actually moves the game
+
   // pauseGame is a switch that gets turned on when GameView.pauseGameToggle gets invoked
   if ( this.pauseGame ) {
     timeDelta = 0;
-    // if pauseGame is turned on, this.game.step(timeDelta) will do nothing, i.e. nothing in the game will move
+    // if pauseGame is turned on, this.game.step(timeDelta) will do nothing
   } else {
     timeDelta = this.runTime - this.lastTime;
   }
