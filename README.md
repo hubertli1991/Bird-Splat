@@ -4,6 +4,35 @@
 
 ## Pausing Game
 
+```` javascript
+GameView.prototype.animate = function(time){
+  // the time variable is the time since DOMContentLoaded
+  // gets automatically passed into the requestAnimationFrame callback
+  this.timeAdjustment = this.timeAdjustment || time;
+  // we need to subtract the time between DOMContentLoaded and the 'ENTER' event that actually starts the game, i.e. since Game.start gets invoked
+  // If we don't subtract this time, the game will be running behind the scenes while the browser is only displaying the splash page
+  // We store this time in timeAdjustment
+  this.runTime = time - this.timeAdjustment;
+  // runTime is essentially the amount of time since GameView.start has been invoked
+  var timeDelta;
+  // timeDelta is the fuel that runs the game. It gets fed into this.game.step(timeDelta) which is what actually moves the game
+  // pauseGame is a switch that gets turned on when GameView.pauseGameToggle gets invoked
+  if ( this.pauseGame ) {
+    timeDelta = 0;
+    // if pauseGame is turned on, this.game.step(timeDelta) will do nothing, i.e. nothing in the game will move
+  } else {
+    timeDelta = this.runTime - this.lastTime;
+  }
+
+  this.game.step(timeDelta);
+  // This is what actually runs the game
+
+  this.lastTime = this.runTime;
+  // saving the current timestamp. Used to calculate the next timeDelta
+  requestAnimationFrame(this.animate.bind(this));
+};
+````
+
 ## Moving Objects
 
 ```` javascript
