@@ -1,8 +1,6 @@
 # Bird-Splat
 
-[LIVE](http://www.hubertli.com/Bird-Splat/)
-
-Click to play
+[PLAY](http://www.hubertli.com/Bird-Splat/)
 
 ![Screen Shot](https://github.com/hubertli1991/Bird-Splat/blob/gh-pages/images/screen_shot.jpg)
 
