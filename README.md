@@ -1,7 +1,16 @@
 # Bird-Splat
 
 ## Running and Pausing Game
-
+The game starts when `GameView.start` is invoked. This function invokes `requestAnimationFrame` with `GameView.animate` as a callback function.
+```` javascript
+GameView.prototype.start = function () {
+  // Does some other things
+  this.lastTime = 0;
+  // start the animation
+  requestAnimationFrame(this.animate.bind(this));
+};
+````
+To keep the game moving, `GameView.animate` recursively calls itself through `requestAnimationFrame`. this function is what controls how much the game changes as time passes. It also determines what pausing the game means. Implementation details are in the comments.
 ```` javascript
 GameView.prototype.animate = function(time){
   // the time variable is the time since DOMContentLoaded
@@ -35,7 +44,6 @@ GameView.prototype.animate = function(time){
 ````
 
 ## Moving Objects
-
 ```` javascript
 MovingObject.prototype.move = function(timeDelta) {
   var velocityScale = timeDelta / MovingObject.NORMAL_FRAME_TIME_DELTA;
