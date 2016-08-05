@@ -1,5 +1,7 @@
 # Bird-Splat
 
+![Screen Shot](https://github.com/hubertli1991/Bird-Splat/blob/gh-pages/images/screen_shot.jpg)
+
 ## Running and Pausing Game
 The game starts when `GameView.start` is invoked. This function invokes `requestAnimationFrame` with `GameView.animate` as a callback function.
 ```` javascript
