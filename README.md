@@ -1,5 +1,9 @@
 # Bird-Splat
 
+[LIVE](http://www.hubertli.com/Bird-Splat/)
+
+Click to play
+
 ![Screen Shot](https://github.com/hubertli1991/Bird-Splat/blob/gh-pages/images/screen_shot.jpg)
 
 ## Running and Pausing Game
